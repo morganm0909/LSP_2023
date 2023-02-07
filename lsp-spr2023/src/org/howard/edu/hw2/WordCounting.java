@@ -13,46 +13,55 @@ import java.util.*;
  *
  */
 public class WordCounting {
-	
+	/**
+	 * 
+	 * @param takes in file as string
+	 * @throws FileNotFoundException
+	 */
 	static void wordCount(String inputfile) throws FileNotFoundException 
 	{
+		/**
+		 * this method removes all non-letter characters from a string and puts
+		 * them into a hashmap. The hashmap's keys contain the word and the value
+		 * is how many times the word appears in the string. This info is output.
+		 */
 		String s = removeIntegers(inputfile);
+		//method removes all symbols from string
 		s = s.replaceAll("[^a-zA-Z0-9]", " ");
 		Map<String,Integer> wc= new HashMap<String, Integer>();
+		//words in string are separated by spaces and put into array
 		String[] wordlist = s.split(" ");
-		List<String> numbers = new ArrayList<String>();
-		for (int i = 0; i < 10; i++){
-			String str_i = String.valueOf(i);
-			numbers.add(str_i);
-		}
-
-		//System.out.println(numbers);
+		//for loop loops through each word in the array
 		for(String word : wordlist) {
+			//converts word to lowercase so capitalized words are put in same key
 			word = word.toLowerCase();
 			Integer current = wc.get(word);
+			//checks if current as a value != " "
 			if(current != null)
 				wc.put(word, current + 1);
 			else
 				wc.put(word, 1);
+			//if word is less than 3 characters long it is removed from hashmap
 			if(word.length() < 3)
 				wc.remove(word);
 			
-		}
-		
+		}	
 
-				
-		
+		//prints out each key and its value on a new line		
 		for (Map.Entry<String, Integer> e : wc.entrySet())
             System.out.println(e.getKey() + " " + e.getValue());
 
 	}
 	private static String removeIntegers(String input) {
-		// TODO Auto-generated method stub
+		/**
+		 * this method returns a string without numbers
+		 */
 		char[] arr = input.toCharArray();
+		//creates an empty string
         String answer = "";
- 
+        //loops through entire string
         for (int i = 0; i < arr.length; i++) {
-
+        	//checks if the current character is a number
             if (!Character.isDigit(arr[i])) {
                 answer += arr[i];
             }
