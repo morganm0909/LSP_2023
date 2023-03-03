@@ -32,12 +32,13 @@ public class Driver {
 		System.out.println("Largest in set1: " + set1.largest());
 		System.out.println("Difference: " + set1.diff(set2));
 		
+ 
+		IntegerSet setunion = set1.union(set2);  
+		System.out.println("Union : " + setunion.printset() );
 		
 		set1.remove(0);
 		System.out.println("Set 1 after removing 1: " + set1.printset());
-		  
-		IntegerSet setunion = set1.union(set2);  
-		System.out.println("Union : " + setunion.printset() );
+	
 		IntegerSet setint= set1.intersect(set2);	
 		set1.add(4);
 		System.out.println("Intersection : " + setint.printset() );

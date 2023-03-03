@@ -14,20 +14,26 @@ public class IntegerSet {
 		
 	}
 
-		// Clears the internal representation of the set
+	/**
+	 * 	Clears the internal representation of the set
+	 */
 	public void clear() {
 		 for (int i = 1; i <= set.size(); i++)
 	            set.remove(i);
 };
+	/**
+	 * 
+	 * // Returns the length of the set
+	 */
 
-	// Returns the length of the set
 	public int length() {
 		return set.size();
-}; // returns the length
+}; 
 
-	/*
-	              * Returns true if the 2 sets are equal, false otherwise;
-	 * Two sets are equal if they contain all of the same values in ANY order.
+	/**
+	  Returns true if the 2 sets are equal, false otherwise;
+	 	Two sets are equal if they contain all of the same values in ANY order.
+	 	1 Parameter: integerSetb which is another IntegerSet class instance
 	*/
 	public boolean equals(IntegerSet b) {
 		
@@ -48,7 +54,11 @@ public class IntegerSet {
 
 	}; 
 
-	// Returns true if the set contains the value, otherwise false
+	/** 
+	 * 
+	 * @param value
+	 * @return true if the set contains the value, otherwise false
+	 */
 	public boolean contains(int value) {
 		if(set.contains(value))
 			return true;
@@ -56,8 +66,12 @@ public class IntegerSet {
 			return false;
 
 	};    
-
-	// Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
+	
+	/** 
+	 * 
+	 * @return the largest item in the set; Throws a IntegerSetException if the set is empty 
+	 * @throws IntegerSetException
+	 */
 	public int largest()throws IntegerSetException  {
 		if (set.isEmpty() == true) {
 			IntegerSetException e = new IntegerSetException();
@@ -84,13 +98,16 @@ public class IntegerSet {
 		
 	};
 
-		// Adds an item to the set or does nothing it already there	
+		/** Adds an item to the set or does nothing it already there	
+		 * 
+		 * @param item
+		 */
 	public void add(int item) {
 			if(set.contains(item))	
 				set = set;
 			else
 				set.add(item);
-}; // adds item to the set or does nothing if it is in set
+}; 
 
 	// Removes an item from the set or does nothing if not there
 	public void remove(int item) {
@@ -104,19 +121,26 @@ public class IntegerSet {
 	public IntegerSet union(IntegerSet intSetb) {
 	       ArrayList<Integer> temp = intSetb.printset();
 	       
-	       Set<Integer> set = new HashSet<>();
-	       set.addAll(set);
-	       set.addAll(temp);
+	       Set<Integer> s = new HashSet<>();
+	       s.addAll(set);
+	       s.addAll(temp);
 	      
-	       ArrayList<Integer> set3= new ArrayList<>(set);
+	       ArrayList<Integer> set3= new ArrayList<>(s);
 	      
 	       IntegerSet result = new IntegerSet(set3);
 	       return result;
+	       
+	       
+	
 };
 	
-	// Set intersection
+	/** 
+	 * 
+	 * @param intSetb(another IntegerSet)
+	 * @return intersection of set1 and set2(parameter)
+	 */
 	public IntegerSet intersect(IntegerSet intSetb) {
-		ArrayList<Integer> temp=intSetb.printset();
+		ArrayList<Integer> temp = intSetb.printset();
 	    set.retainAll(temp);
 	    IntegerSet result = new IntegerSet(set);
 	    return result;
@@ -124,7 +148,11 @@ public class IntegerSet {
 
 }; 
 	
-	// Set difference, i.e., s1 –s2
+	/** 
+	 * 
+	 * @param intSetb
+	 * @return Set difference, i.e., s1 –s2
+	 */
 	public IntegerSet diff(IntegerSet intSetb) {
 		 ArrayList<Integer> temp=intSetb.printset();
 	     set.removeAll(temp);
@@ -132,9 +160,12 @@ public class IntegerSet {
 	     return result;
 
 	     
-	}; // set difference, i.e. s1 - s2
+	}; 
 	
-	// Returns true if the set is empty, false otherwise
+	/** 
+	 * 
+	 * @return Returns true if the set is empty, false otherwise
+	 */
 	boolean isEmpty() {
 		boolean ans = set.isEmpty();
 		if(ans == true)
