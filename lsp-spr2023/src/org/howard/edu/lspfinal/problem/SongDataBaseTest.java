@@ -25,13 +25,18 @@ public class SongDataBaseTest {
 		assertTrue(songs.contains("Gin and Juice"));                     
 		assertFalse(songs.contains("One Wish"));
 		assertTrue("Jazz" == db.getGenreOfSong("Always There"));
+		assertTrue("Rap" == db.getGenreOfSong("Savage"));
+		assertFalse("Jazz" == db.getGenreOfSong("Savage"));
+		
 		
 		Set<String> rsongs = db.getSongs("R&B"); // contains One Wish and Candy Rain
 		assertTrue(rsongs.contains("Candy Rain"));
 		assertTrue(rsongs.contains("One Wish"));
+		assertFalse(rsongs.contains("Longing For"));
 		
 		Set<String> reggae = db.getSongs("Longing For"); // contains Longing For
 		assertTrue("Reggae" == db.getGenreOfSong("Longing For"));
+		assertFalse("Reggae" == db.getGenreOfSong("Savage"));
 		
 
 
