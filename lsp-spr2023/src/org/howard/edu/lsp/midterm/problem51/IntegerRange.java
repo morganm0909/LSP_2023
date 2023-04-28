@@ -15,15 +15,7 @@ public class IntegerRange implements Range{
 		else
 			return false;
 				
-	}
-	public boolean overlaps(Range other) throws EmptyRangeException {
-		
-	}
 
-	public int size()  {
-		int size = upper - lower;
-	}
-}
 
 
 
